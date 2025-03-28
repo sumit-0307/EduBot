@@ -1,0 +1,76 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: white;
+}
+
+/* Chat Container */
+.chat-container {
+  @apply bg-gray-800 p-6 rounded-lg shadow-xl;
+  width: 500px;
+  height: 600px;
+  animation: cardSpotlight 2s infinite alternate;
+}
+
+/* Message Box */
+.message-box {
+  @apply overflow-y-auto mb-4 p-2;
+  height: 450px;
+  background-color: #1e293b;
+  border-radius: 12px;
+}
+
+/* Input Box */
+.input-box {
+  @apply mt-4;
+  margin-bottom: 1rem;
+}
+
+/* Send Button */
+.send-button {
+  @apply px-4 py-2 rounded-lg;
+  background-image: linear-gradient(to right, #4f46e5, #9333ea);
+  color: white;
+  transition: transform 0.2s;
+}
+.send-button:hover {
+  transform: scale(1.05);
+}
+
+/* Card Texture Animation */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, background 0.5s ease-in-out;
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  background-size: 200% 200%;
+}
+
+.spotlight-card:hover {
+  transform: scale(1.02);
+  background-position: 100% 100%;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 0.3;
+}
